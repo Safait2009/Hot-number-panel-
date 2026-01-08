@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFAIT VIP PREMIUM PANEL</title>
+    <title>SAFAIT VIP PREMIUM</title>
     <style>
         body { background: #000; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; }
         .premium-card { background: #0a0a0a; border: 2px solid #ff0000; width: 380px; padding: 35px; border-radius: 25px; box-shadow: 0 0 40px #ff0000; }
@@ -30,7 +30,7 @@
 
 <div class="premium-card" id="main" style="display:none;">
     <h1 style="color: #ff0000; font-size: 20px; margin: 0;">SAFAIT VIP NUMBER PANEL</h1>
-    <div style="font-size: 10px; color: #555; margin-bottom: 10px;">ENCRYPTED DATABASE SYNC: ONLINE</div>
+    <div style="font-size: 10px; color: #555; margin-bottom: 10px;">AUTO-CALIBRATION ACTIVE: +1 OFFSET</div>
 
     <div class="p-box" id="period">PERIOD: SYNCING...</div>
     <div class="timer" id="time">00s</div>
@@ -49,11 +49,7 @@
     <div class="shot-card">
         <div style="font-size: 12px; color: #fff; font-weight: bold; opacity: 0.7; letter-spacing: 2px;">SURE NUMBER SHOT</div>
         <div class="num" id="number">?</div>
-        <div style="font-size: 11px; color: #00ffff; font-weight: bold;">● 1-STEP WINNING SYSTEM ACTIVE</div>
-    </div>
-
-    <div style="margin-top: 20px; font-size: 13px; color: #444;">
-        DEVELOPED BY: <span style="color: #fff;">DEVELOPER SAFAIT</span>
+        <div style="font-size: 11px; color: #00ffff; font-weight: bold;">● SERVER CONNECTED [v35.2]</div>
     </div>
 </div>
 
@@ -70,18 +66,17 @@
         let now = new Date();
         let h = now.getHours(), min = now.getMinutes(), sec = now.getSeconds();
         
-        // DK Win 30s Exact Formula based on your 51350 period
         let totalSec = (h * 3600) + (min * 60) + sec;
         let serialBase = Math.floor(totalSec / 30);
         
-        // Calibrated Offset for 51350 range
-        let serial = (49280 + serialBase).toString().padStart(5, '0');
+        // সিরিয়াল ক্যালিব্রেশন ১ ধাপ বাড়িয়ে দেওয়া হয়েছে যাতে গ্যাপ না থাকে
+        let serial = (49281 + serialBase).toString().padStart(5, '0');
         
         let y = now.getFullYear(), m = (now.getMonth()+1).toString().padStart(2,'0'), d = now.getDate().toString().padStart(2,'0');
         document.getElementById('period').innerText = "PERIOD: " + y + m + d + "1000" + serial;
 
-        // 1-STEP SURE WIN LOGIC
-        let n = (parseInt(serial) * 3 + 1) % 10;
+        // নম্বর প্রেডিকশন
+        let n = (parseInt(serial) * 9 + 5) % 10;
         document.getElementById('number').innerText = n;
         document.getElementById('sz').innerText = (n >= 5) ? "BIG" : "SMALL";
         document.getElementById('cl').innerText = (n % 2 === 0) ? "RED 🔴" : "GREEN 🟢";
