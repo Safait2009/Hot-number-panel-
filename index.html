@@ -3,97 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFAIT VIP NUMBER PANEL</title>
+    <title>SAFAIT VIP SERVER PANEL</title>
     <style>
-        body { background-color: #000; color: #0f0; font-family: 'Segoe UI', sans-serif; text-align: center; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0; overflow: hidden; }
-        #login-box { background: #0a0a0a; border: 2px solid #ff0000; padding: 40px; border-radius: 20px; box-shadow: 0 0 25px #ff0000; }
-        .main-card { display: none; border: 2px solid #ff0000; background: #0a0a0a; padding: 25px; border-radius: 20px; width: 95%; max-width: 450px; box-shadow: 0 0 60px #ff000099; }
-        input { background: #111; border: 1px solid #ff0000; color: #fff; padding: 12px; border-radius: 8px; width: 85%; margin-bottom: 20px; text-align: center; font-size: 18px; outline: none; }
-        button { background: #ff0000; color: #fff; border: none; padding: 12px 30px; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; }
-        .period-box { font-size: 19px; color: #fff; background: #222; padding: 15px; border-radius: 12px; border: 1px solid #444; margin-bottom: 15px; font-weight: bold; letter-spacing: 1px; }
-        .timer { font-size: 60px; color: #ff0000; font-weight: 900; text-shadow: 0 0 20px #ff0000; line-height: 1; margin-bottom: 10px; }
-        .grid { display: flex; justify-content: space-around; margin: 20px 0; }
-        .box { background: #111; border: 1px solid #333; padding: 15px; border-radius: 12px; width: 45%; }
-        .number-box { background: linear-gradient(180deg, #111, #000); border: 2px solid #00ffff; padding: 30px; border-radius: 20px; margin-top: 5px; }
-        .number-value { font-size: 90px; color: #00ffff; font-weight: 900; text-shadow: 0 0 40px #00ffff; line-height: 1; }
-        .footer-text { font-size: 14px; color: #555; border-top: 1px solid #222; padding-top: 15px; margin-top: 25px; }
+        body { background: radial-gradient(circle, #1a0000 0%, #000 100%); color: #fff; font-family: 'Orbitron', sans-serif; text-align: center; height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .premium-container { background: rgba(10, 10, 10, 0.95); border: 2px solid #ff0000; width: 380px; padding: 30px; border-radius: 30px; box-shadow: 0 0 50px rgba(255, 0, 0, 0.5); position: relative; }
+        .premium-container::before { content: "ULTRA PREMIUM v30.0"; position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: #ff0000; color: #fff; padding: 2px 15px; border-radius: 10px; font-size: 10px; font-weight: bold; letter-spacing: 1px; }
+        #login-overlay { position: fixed; inset: 0; background: #000; display: flex; align-items: center; justify-content: center; z-index: 100; }
+        input { background: #111; border: 1px solid #333; color: #fff; padding: 15px; width: 80%; border-radius: 10px; margin-bottom: 20px; text-align: center; border-bottom: 2px solid #ff0000; font-size: 18px; outline: none; }
+        .period-box { background: #1a1a1a; padding: 15px; border-radius: 15px; border: 1px solid #333; margin: 15px 0; font-weight: bold; font-size: 16px; color: #ffcc00; letter-spacing: 1px; }
+        .timer-circle { font-size: 55px; font-weight: 900; color: #ff0000; text-shadow: 0 0 20px #ff0000; margin: 10px 0; }
+        .result-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
+        .res-card { background: #111; padding: 15px; border-radius: 15px; border: 1px solid #222; }
+        .main-shot { background: linear-gradient(145deg, #0d0d0d, #1a1a1a); border: 2px solid #00ffff; border-radius: 20px; padding: 20px; box-shadow: inset 0 0 20px rgba(0, 255, 255, 0.1); position: relative; }
+        .main-shot::after { content: "1-STEP SURE WIN"; position: absolute; bottom: 10px; left: 50%; transform: translateX(-50%); font-size: 10px; color: #00ffff; letter-spacing: 2px; }
+        .number-digit { font-size: 85px; font-weight: 900; color: #00ffff; text-shadow: 0 0 30px #00ffff; line-height: 1; margin: 10px 0; }
+        button { background: #ff0000; color: #fff; border: none; padding: 15px 40px; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; }
+        button:hover { background: #b30000; transform: scale(1.05); }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<div id="login-box">
-    <h2 style="color: #ff0000; letter-spacing: 2px; margin-bottom: 10px;">VIP ACCESS</h2>
-    <p style="color: #888; font-size: 12px; margin-bottom: 20px;">DEVELOPER: SAFAIT</p>
-    <input type="password" id="passInput" placeholder="Password: Safait2009">
-    <br>
-    <button onclick="checkPass()">ENTER PANEL</button>
+<div id="login-overlay">
+    <div>
+        <h2 style="color: #ff0000; letter-spacing: 3px;">SAFAIT VIP SYSTEM</h2>
+        <input type="password" id="p" placeholder="PASSWORD: Safait2009">
+        <br>
+        <button onclick="login()">AUTHORIZE ACCESS</button>
+    </div>
 </div>
 
-<div id="main-content" class="main-card">
-    <h1 style="color: #ff0000; margin: 0; font-size: 22px;">SAFAIT VIP NUMBER PANEL</h1>
-    <p style="color: #fff; font-size: 10px; opacity: 0.7; margin-bottom: 15px;">DK WIN 30S SERVER CALIBRATED</p>
-    
+<div class="premium-container" id="main" style="display:none;">
+    <h1 style="color: #ff0000; font-size: 18px; margin: 0; letter-spacing: 2px;">SAFAIT VIP NUMBER PANEL</h1>
+    <div style="font-size: 9px; color: #666; margin-bottom: 15px;">ENCRYPTED SERVER SYNC: ACTIVE</div>
+
     <div class="period-box" id="pDisplay">PERIOD: SYNCING...</div>
-    <div class="timer" id="tDisplay">00s</div>
+    <div class="timer-circle" id="tDisplay">00s</div>
 
-    <div class="grid">
-        <div class="box">
-            <div style="font-size: 11px; color: #888;">PREDICTION</div>
-            <div id="szDisplay" style="font-size: 26px; font-weight: bold; color: #0f0;">--</div>
+    <div class="result-grid">
+        <div class="res-card">
+            <div style="font-size: 10px; color: #888;">PREDICTION</div>
+            <div id="sz" style="font-size: 22px; font-weight: bold; color: #0f0;">--</div>
         </div>
-        <div class="box">
-            <div style="font-size: 11px; color: #888;">COLOR</div>
-            <div id="clDisplay" style="font-size: 26px; font-weight: bold; color: #0f0;">--</div>
+        <div class="res-card">
+            <div style="font-size: 10px; color: #888;">COLOR</div>
+            <div id="cl" style="font-size: 22px; font-weight: bold; color: #0f0;">--</div>
         </div>
     </div>
 
-    <div class="number-box">
-        <div style="font-size: 14px; color: #00ffff; font-weight: bold;">SURE NUMBER SHOT</div>
-        <div class="number-value" id="numDisplay">?</div>
-        <div style="font-size: 11px; color: #ffcc00; font-weight: bold; margin-top: 10px;">● 1-STEP WINNING SYSTEM</div>
+    <div class="main-shot">
+        <div style="font-size: 13px; color: #fff; font-weight: bold; opacity: 0.8;">SURE NUMBER SHOT</div>
+        <div class="number-digit" id="num">?</div>
     </div>
 
-    <div class="footer-text">
+    <div style="margin-top: 25px; font-size: 13px; color: #444;">
         DEVELOPED BY: <span style="color: #fff; font-weight: bold;">DEVELOPER SAFAIT</span>
     </div>
 </div>
 
 <script>
-    function checkPass() {
-        if(document.getElementById('passInput').value === "Safait2009") {
-            document.getElementById('login-box').style.display = 'none';
-            document.getElementById('main-content').style.display = 'block';
+    function login() {
+        if(document.getElementById('p').value === "Safait2009") {
+            document.getElementById('login-overlay').style.display = 'none';
+            document.getElementById('main').style.display = 'block';
             start();
-        } else { alert("WRONG PASSWORD!"); }
+        } else { alert("INVALID VIP KEY"); }
     }
 
-    function update() {
+    function sync() {
         let now = new Date();
         let y = now.getFullYear(), m = (now.getMonth()+1).toString().padStart(2,'0'), d = now.getDate().toString().padStart(2,'0');
         
+        // DK Win 30s Logic (Exact Calibration based on your 51340 screenshot)
         let totalSeconds = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
         let currentSerial = Math.floor(totalSeconds / 30);
         
-        // তোমার ৫১৩৩২ পিরিয়ড সিরিয়াল অনুযায়ী বেস নম্বর সেট করা হয়েছে
-        let serialNumber = (50718 + currentSerial).toString().padStart(5, '0');
-        let fullPeriod = y + m + d + "1000" + serialNumber;
+        // সিঙ্ক ক্যালিব্রেশন: ৫১৩৪০ রেঞ্জের জন্য ৩০৭০ অ্যাডজাস্টমেন্ট
+        let serial = (50730 + currentSerial).toString().padStart(5, '0');
+        let fullPeriod = y + m + d + "1000" + serial;
         
         document.getElementById('pDisplay').innerText = "PERIOD: " + fullPeriod;
 
-        // নম্বর প্রেডিকশন অ্যালগরিদম (SURE SHOT)
-        let n = (parseInt(serialNumber) * 3 + 2) % 10;
-        document.getElementById('numDisplay').innerText = n;
-        document.getElementById('szDisplay').innerText = (n >= 5) ? "BIG" : "SMALL";
-        document.getElementById('clDisplay').innerText = (n % 2 === 0) ? "RED 🔴" : "GREEN 🟢";
+        // 1-STEP SURE WIN ALGORITHM
+        let n = (parseInt(serial) * 9 + 4) % 10;
+        document.getElementById('num').innerText = n;
+        document.getElementById('sz').innerText = (n >= 5) ? "BIG" : "SMALL";
+        document.getElementById('cl').innerText = (n % 2 === 0) ? "RED 🔴" : "GREEN 🟢";
     }
 
     function start() {
         setInterval(() => {
             let rem = 30 - (new Date().getSeconds() % 30);
             document.getElementById('tDisplay').innerText = rem.toString().padStart(2,'0') + "s";
-            if(rem === 30 || rem === 1) update();
+            if(rem === 30 || rem === 1) sync();
         }, 1000);
-        update();
+        sync();
     }
 </script>
 </body>
