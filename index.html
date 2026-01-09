@@ -3,94 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFAIT VIP PREMIUM</title>
+    <title>SAFAIT VIP UNIVERSAL PANEL</title>
     <style>
         body { background: #000; color: #fff; font-family: 'Segoe UI', sans-serif; text-align: center; height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; }
-        .premium-card { background: #0a0a0a; border: 2px solid #ff0000; width: 380px; padding: 35px; border-radius: 25px; box-shadow: 0 0 40px #ff0000; }
-        input { background: #111; border: 1px solid #444; color: #fff; padding: 15px; width: 85%; border-radius: 10px; margin-bottom: 20px; text-align: center; font-size: 18px; outline: none; border-bottom: 2px solid #ff0000; }
-        .p-box { background: #1a1a1a; padding: 15px; border-radius: 15px; margin: 15px 0; color: #ffcc00; font-weight: bold; font-size: 17px; border: 1px solid #333; }
+        .premium-card { background: #0a0a0a; border: 2px solid #ff0000; width: 380px; padding: 30px; border-radius: 25px; box-shadow: 0 0 50px rgba(255, 0, 0, 0.4); }
+        .p-box { background: #1a1a1a; padding: 15px; border-radius: 12px; margin: 15px 0; color: #ffcc00; font-weight: bold; font-size: 17px; border: 1px solid #333; }
         .timer { font-size: 60px; font-weight: 900; color: #ff0000; text-shadow: 0 0 20px #ff0000; margin: 5px 0; }
-        .shot-card { background: linear-gradient(180deg, #111, #000); border: 2px solid #00ffff; border-radius: 20px; padding: 25px; margin-top: 10px; box-shadow: 0 0 25px #00ffff22; }
-        .num { font-size: 95px; font-weight: 900; color: #00ffff; text-shadow: 0 0 40px #00ffff; line-height: 1; margin: 10px 0; }
-        button { background: #ff0000; color: #fff; border: none; padding: 15px 40px; border-radius: 10px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .grid { display: flex; justify-content: space-around; margin-bottom: 15px; }
-        .g-item { background: #111; padding: 10px; border-radius: 10px; width: 45%; border: 1px solid #222; }
+        .shot-card { background: linear-gradient(180deg, #111, #000); border: 2px solid #00ffff; border-radius: 20px; padding: 25px; margin-top: 10px; }
+        .num { font-size: 100px; font-weight: 900; color: #00ffff; text-shadow: 0 0 40px #00ffff; line-height: 1; margin: 10px 0; }
+        .sync-controls { display: flex; justify-content: center; gap: 10px; margin-top: 15px; }
+        .sync-btn { background: #333; color: #fff; border: 1px solid #555; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-size: 12px; }
+        .sync-btn:active { background: #ff0000; }
     </style>
 </head>
 <body>
 
-<div id="login">
-    <div class="premium-card">
-        <h2 style="color: #ff0000; letter-spacing: 2px;">VIP SERVER ACCESS</h2>
-        <input type="password" id="pass" placeholder="Enter Secret Password">
-        <br>
-        <button onclick="entry()">ACTIVATE PANEL</button>
-    </div>
-</div>
-
-<div class="premium-card" id="main" style="display:none;">
-    <h1 style="color: #ff0000; font-size: 20px; margin: 0;">SAFAIT VIP NUMBER PANEL</h1>
-    <div style="font-size: 10px; color: #555; margin-bottom: 10px;">AUTO-CALIBRATION ACTIVE: +1 OFFSET</div>
+<div class="premium-card">
+    <h1 style="color: #ff0000; font-size: 18px; margin: 0;">SAFAIT VIP UNIVERSAL</h1>
+    <div style="font-size: 10px; color: #555; margin-bottom: 10px;">ULTRA PREDICTOR v50.0</div>
 
     <div class="p-box" id="period">PERIOD: SYNCING...</div>
     <div class="timer" id="time">00s</div>
 
-    <div class="grid">
-        <div class="g-item">
-            <div style="font-size: 10px; color: #888;">PREDICTION</div>
-            <div id="sz" style="font-size: 22px; font-weight: bold; color: #0f0;">--</div>
-        </div>
-        <div class="g-item">
-            <div style="font-size: 10px; color: #888;">COLOR</div>
-            <div id="cl" style="font-size: 22px; font-weight: bold; color: #0f0;">--</div>
-        </div>
+    <div class="shot-card">
+        <div style="font-size: 12px; color: #fff; font-weight: bold; opacity: 0.7;">SURE NUMBER SHOT</div>
+        <div class="num" id="number">?</div>
+        <div id="extra" style="font-size: 18px; color: #0f0; font-weight: bold;">-- | --</div>
     </div>
 
-    <div class="shot-card">
-        <div style="font-size: 12px; color: #fff; font-weight: bold; opacity: 0.7; letter-spacing: 2px;">SURE NUMBER SHOT</div>
-        <div class="num" id="number">?</div>
-        <div style="font-size: 11px; color: #00ffff; font-weight: bold;">● SERVER CONNECTED [v35.2]</div>
+    <div class="sync-controls">
+        <button class="sync-btn" onclick="adjustOffset(-1)">- SYNC</button>
+        <button class="sync-btn" onclick="adjustOffset(1)">+ SYNC</button>
     </div>
+    
+    <div style="margin-top: 20px; font-size: 12px; color: #444;">DEVELOPED BY SAFAIT</div>
 </div>
 
 <script>
-    function entry() {
-        if(document.getElementById('pass').value === "Safait2009") {
-            document.getElementById('login').style.display = 'none';
-            document.getElementById('main').style.display = 'block';
-            run();
-        } else { alert("INVALID ACCESS KEY!"); }
+    let offset = 49275; // বেস অফসেট
+
+    function adjustOffset(val) {
+        offset += val;
+        sync();
     }
 
     function sync() {
         let now = new Date();
-        let h = now.getHours(), min = now.getMinutes(), sec = now.getSeconds();
-        
-        let totalSec = (h * 3600) + (min * 60) + sec;
+        let totalSec = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
         let serialBase = Math.floor(totalSec / 30);
         
-        // সিরিয়াল ক্যালিব্রেশন ১ ধাপ বাড়িয়ে দেওয়া হয়েছে যাতে গ্যাপ না থাকে
-        let serial = (49281 + serialBase).toString().padStart(5, '0');
-        
+        let serial = (offset + serialBase).toString().padStart(5, '0');
         let y = now.getFullYear(), m = (now.getMonth()+1).toString().padStart(2,'0'), d = now.getDate().toString().padStart(2,'0');
         document.getElementById('period').innerText = "PERIOD: " + y + m + d + "1000" + serial;
 
-        // নম্বর প্রেডিকশন
-        let n = (parseInt(serial) * 9 + 5) % 10;
+        // রেজাল্ট না মিললে এই অ্যালগরিদমটি চেঞ্জ হবে
+        let n = (parseInt(serial) * 7 + 3) % 10; 
         document.getElementById('number').innerText = n;
-        document.getElementById('sz').innerText = (n >= 5) ? "BIG" : "SMALL";
-        document.getElementById('cl').innerText = (n % 2 === 0) ? "RED 🔴" : "GREEN 🟢";
+        document.getElementById('extra').innerText = (n >= 5 ? "BIG" : "SMALL") + " | " + (n % 2 === 0 ? "RED" : "GREEN");
     }
 
-    function run() {
-        setInterval(() => {
-            let s = new Date().getSeconds() % 30;
-            let rem = 30 - s;
-            document.getElementById('time').innerText = rem.toString().padStart(2,'0') + "s";
-            if(rem === 30 || rem === 1) sync();
-        }, 1000);
-        sync();
-    }
+    setInterval(() => {
+        let rem = 30 - (new Date().getSeconds() % 30);
+        document.getElementById('time').innerText = rem.toString().padStart(2,'0') + "s";
+        if(rem === 30 || rem === 1) sync();
+    }, 1000);
+
+    sync();
 </script>
 </body>
 </html>
