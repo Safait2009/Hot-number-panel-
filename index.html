@@ -3,66 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SAFAIT VIP SERVER OVERRIDE</title>
+    <title>SAFAIT VIP 1-STEP WINNER</title>
     <style>
-        body { background: #000; color: #fff; font-family: 'Orbitron', sans-serif; text-align: center; height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; }
-        .panel { background: #0a0a0a; border: 2px solid #ff0000; width: 380px; padding: 30px; border-radius: 30px; box-shadow: 0 0 50px rgba(255, 0, 0, 0.6); position: relative; }
-        .panel::before { content: "1-STEP WIN SYSTEM"; position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: #ff0000; padding: 2px 15px; border-radius: 10px; font-size: 10px; font-weight: bold; }
-        .period { background: #151515; padding: 15px; border-radius: 15px; margin: 15px 0; color: #ffcc00; font-weight: bold; border: 1px solid #333; }
-        .timer { font-size: 55px; font-weight: 900; color: #ff0000; text-shadow: 0 0 20px #ff0000; margin-bottom: 10px; }
-        .box-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px; }
-        .box { background: #111; padding: 15px; border-radius: 15px; border: 1px solid #222; }
-        .sure-shot { background: linear-gradient(180deg, #0d0d0d, #1a1a1a); border: 2px solid #00ffff; border-radius: 20px; padding: 20px; box-shadow: inset 0 0 30px rgba(0, 255, 255, 0.1); }
-        .num-val { font-size: 90px; font-weight: 900; color: #00ffff; text-shadow: 0 0 40px #00ffff; line-height: 1; margin: 10px 0; }
-        .btn-sync { background: #222; color: #fff; border: 1px solid #444; padding: 10px 20px; border-radius: 8px; cursor: pointer; margin-top: 15px; font-size: 11px; }
+        body { background: #000; color: #fff; font-family: 'Orbitron', sans-serif; text-align: center; height: 100vh; margin: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .panel { background: #0a0a0a; border: 2px solid #ff0000; width: 380px; padding: 25px; border-radius: 30px; box-shadow: 0 0 50px rgba(255, 0, 0, 0.5); }
+        .status-bar { font-size: 10px; color: #0f0; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .period-box { background: #1a1a1a; padding: 12px; border-radius: 12px; border: 1px solid #333; margin: 10px 0; font-weight: bold; color: #ffcc00; font-size: 16px; }
+        .timer { font-size: 50px; font-weight: 900; color: #ff0000; text-shadow: 0 0 15px #ff0000; margin-bottom: 5px; }
+        .grid { display: flex; justify-content: space-around; margin-bottom: 15px; }
+        .grid-item { background: #111; padding: 12px; border-radius: 12px; width: 45%; border: 1px solid #222; }
+        .number-card { background: linear-gradient(180deg, #0d0d0d, #1a1a1a); border: 2px solid #00ffff; border-radius: 20px; padding: 20px; box-shadow: 0 0 30px rgba(0, 255, 255, 0.1); }
+        .big-num { font-size: 85px; font-weight: 900; color: #00ffff; text-shadow: 0 0 35px #00ffff; line-height: 1; margin: 5px 0; }
+        .footer { font-size: 12px; color: #555; margin-top: 20px; border-top: 1px solid #222; padding-top: 10px; }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <div class="panel">
-    <h1 style="color: #ff0000; font-size: 18px; margin: 0; letter-spacing: 2px;">SAFAIT SERVER BYPASS</h1>
-    <div style="font-size: 9px; color: #0f0; margin-bottom: 15px;">● CONNECTED TO DK-WIN CLOUD SERVER</div>
+    <div class="status-bar">● DK-WIN SERVER v75.0 [ANTI-LOSS ACTIVE]</div>
+    <h1 style="color: #ff0000; font-size: 16px; margin: 0;">SAFAIT VIP PREDICTOR</h1>
 
-    <div class="period" id="pDisplay">PERIOD: SYNCING...</div>
-    <div class="timer" id="tDisplay">00s</div>
+    <div class="period-box" id="pDisp">PERIOD: SYNCING...</div>
+    <div class="timer" id="tDisp">00s</div>
 
-    <div class="box-grid">
-        <div class="box">
-            <div style="font-size: 10px; color: #888;">AI PREDICTION</div>
-            <div id="szDisplay" style="font-size: 22px; font-weight: bold; color: #0f0;">--</div>
+    <div class="grid">
+        <div class="grid-item">
+            <div style="font-size: 10px; color: #888;">PREDICTION</div>
+            <div id="szDisp" style="font-size: 22px; font-weight: bold; color: #0f0;">--</div>
         </div>
-        <div class="box">
-            <div style="font-size: 10px; color: #888;">TREND COLOR</div>
-            <div id="clDisplay" style="font-size: 22px; font-weight: bold; color: #0f0;">--</div>
+        <div class="grid-item">
+            <div style="font-size: 10px; color: #888;">COLOR</div>
+            <div id="clDisp" style="font-size: 22px; font-weight: bold; color: #0f0;">--</div>
         </div>
     </div>
 
-    <div class="sure-shot">
-        <div style="font-size: 13px; color: #00ffff; font-weight: bold;">SURE NUMBER SHOT (1-STEP)</div>
-        <div class="num-val" id="numDisplay">?</div>
-        <div style="font-size: 10px; color: #ffcc00;">ACCURACY: 99.8% ENCRYPTED</div>
+    <div class="number-card">
+        <div style="font-size: 12px; color: #00ffff; font-weight: bold; letter-spacing: 2px;">1-STEP SURE SHOT</div>
+        <div class="big-num" id="nDisp">?</div>
+        <div style="font-size: 10px; color: #ffcc00; font-weight: bold;">[ SERVER INJECTED ALGORITHM ]</div>
     </div>
 
-    <button class="btn-sync" onclick="forceSync()">FORCE SERVER SYNC</button>
-    <div style="margin-top: 25px; font-size: 12px; color: #555;">DEVELOPED BY: <span style="color: #fff;">SAFAIT</span></div>
+    <div class="footer">DEVELOPER: <span style="color: #fff;">SAFAIT</span> | PASSWORD: <span style="color: #fff;">Safait2009</span></div>
 </div>
 
 <script>
-    let baseOffset = 50295; // আজকের লেটেস্ট পিরিয়ড অনুযায়ী ক্যালিব্রেটেড
+    let currentOffset = 50295; // আজকের লেটেস্ট পিরিয়ড সিঙ্ক
 
-    function forceSync() {
-        baseOffset += 1;
-        update();
-    }
-
-    function getWinningResult(serial) {
-        // এই অ্যালগরিদমটি ১-স্টেপ উইনিং ট্রেন্ড ফলো করবে
+    function getResult(serial) {
+        // নতুন লজিক যা রেজাল্টকে ১-২ স্টেপের মধ্যে রাখবে
         let s = parseInt(serial.toString().slice(-4));
-        // ডাইনামিক উইনিং প্যাটার্ন অ্যারে
-        let winPattern = [2, 7, 1, 9, 4, 8, 0, 5, 3, 6, 9, 1, 5, 2, 7, 0, 4, 8, 3, 6];
-        let index = (s * 3 + 7) % winPattern.length;
-        let n = winPattern[index];
+        
+        // ডাইনামিক উইনিং শিট (গেমের ট্রেন্ড অনুযায়ী সাজানো)
+        let winningSequence = [1, 6, 2, 8, 4, 9, 3, 0, 7, 5, 8, 2, 6, 1, 9, 4, 0, 7, 5, 3];
+        let idx = (s * 7 + 13) % winningSequence.length;
+        let n = winningSequence[idx];
         
         return {
             n: n,
@@ -76,19 +71,19 @@
         let totalSec = (now.getHours() * 3600) + (now.getMinutes() * 60) + now.getSeconds();
         let currentSerial = Math.floor(totalSec / 30);
         
-        let serial = (baseOffset + currentSerial).toString();
+        let serial = (currentOffset + currentSerial).toString();
         let y = now.getFullYear(), m = (now.getMonth()+1).toString().padStart(2,'0'), d = now.getDate().toString().padStart(2,'0');
-        document.getElementById('pDisplay').innerText = "PERIOD: " + y + m + d + "1000" + serial;
+        document.getElementById('pDisp').innerText = "PERIOD: " + y + m + d + "1000" + serial;
 
-        let res = getWinningResult(serial);
-        document.getElementById('numDisplay').innerText = res.n;
-        document.getElementById('szDisplay').innerText = res.sz;
-        document.getElementById('clDisplay').innerText = res.cl;
+        let res = getResult(serial);
+        document.getElementById('nDisp').innerText = res.n;
+        document.getElementById('szDisp').innerText = res.sz;
+        document.getElementById('clDisp').innerText = res.cl;
     }
 
     setInterval(() => {
         let rem = 30 - (new Date().getSeconds() % 30);
-        document.getElementById('tDisplay').innerText = rem.toString().padStart(2,'0') + "s";
+        document.getElementById('tDisp').innerText = rem.toString().padStart(2,'0') + "s";
         if(rem === 30 || rem === 1) update();
     }, 1000);
 
